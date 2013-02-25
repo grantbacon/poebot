@@ -21,6 +21,12 @@ a {
     text-decoration: none;
 }
 
+#footer {
+    position: absolute;
+    bottom: 0px;
+    margin: auto;
+}
+
 input {
     background-color: #666;
     color: #fff;

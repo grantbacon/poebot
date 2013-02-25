@@ -14,6 +14,9 @@ def speak():
     user_color = poe.talk(post_data['message'], request.remote_addr)
     return user_color
 
+@route('/about')
+def about():
+    return template('about')
 
 @route('/')
 def index():

@@ -22,6 +22,9 @@
 <a href="/static/log.html"> log of messages </a>
 </div>
 
+<div id="footer">
+<span id="footer_message"> <a href="/about"> about the poe bot </a> </span>
+</div>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="/static/js/index.js"></script>
