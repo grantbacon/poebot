@@ -1,0 +1,27 @@
+body {
+    background: #000 url('/static/cat_bg.png') no-repeat fixed;
+    color: #fff;
+    font-family: arial, sans-serif;
+}
+
+#main {
+    width: 40%;
+    height: auto;
+    margin: auto;
+    margin-top: 8em;
+    padding: 2em;
+}
+
+#success {
+    margin-top: 0.5em;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+input {
+    background-color: #666;
+    color: #fff;
+}
