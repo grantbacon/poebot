@@ -1,5 +1,6 @@
 import subprocess
 import sys
+import cgi
 
 class Poebot:
 
@@ -33,7 +34,7 @@ class Poebot:
 
             subprocess.Popen( ['flite', '-voice','slt', '-t', message] )
             print message
-            message = '<span style="color:' + color + '">' + message + '</span>'
+            message = '<span style="color:' + color + '">' + cgi.escape(message) + '</span>'
             self.save(message)
             return color
         except OSError:
