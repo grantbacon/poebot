@@ -12,7 +12,7 @@
     <h1 id="header">about</h1>
     <hr>
     <span class="about">
-        poe bot is a little speech synthesizer that runs on a <a href="http://raspberrypi.org">raspberry pi</a> in my living room attached to a set of speakers.
+        poe bot is a little web interface connected to a speech synthesizer (i'm using <a href="https://github.com/optionalgod/flite">flite</a>) that runs on a <a href="http://raspberrypi.org">raspberry pi</a> in my living room attached to a set of speakers.
         <br><br>
         <strong> some technical shit if youre interested </strong><br>
         there are no logs stored in regard to IP address. the IP addresses are stored in temporary memory and are used to assign colors for each unique user.
