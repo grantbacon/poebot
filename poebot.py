@@ -22,24 +22,31 @@ class Poebot:
             '#FFFFFF'
             ]
 
-    def talk(self, message, user_address):
+    def talk(self, message, user_address, new_color='off'):
         try:
-
             try:
-                color = self.users[user_address]
+                if (new_color == 'off'):
+                    color = self.users[user_address]
+                else:
+                    del self.users[user_address]
+                    self.colorize_user(user_address)
             except KeyError:
-                color = self.user_colors.pop()
-                self.users[user_address] = color
-                self.user_colors.insert(0, color)
+                self.colorize_user(user_address)
 
             subprocess.Popen( ['flite', '-voice','slt', '-t', message] )
-            print message
+
             message = '<span style="color:' + color + '">' + cgi.escape(message) + '</span>'
             self.save(message)
+            print message
             return color
         except OSError:
             pass
         return True
+
+    def colorize_user(self, user_address):
+        color = self.user_colors.pop()
+        self.users[user_address] = color
+        self.user_colors.insert(0, color)
 
     def save(self, data):
         f = open(self.db_file, 'a')
