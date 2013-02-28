@@ -14,7 +14,7 @@
 <form id="form" action="#">
 <input type='text' name='message' placeholder='poe shall say'> 
 <input type='submit' value='speak' id='submit'>
-<br> fresh color: <input type='checkbox' id='new_color' name='new_color' value='off'>
+<br> fresh color: <input type='checkbox' id='new_color' name='new_color' value='true'>
 </form>
 
 <div id="success"> 

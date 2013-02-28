@@ -14,7 +14,11 @@ def static(filepath):
 @route('/speak', method='POST')
 def speak():
     post_data = json.load(request.body)
-    user_color = poe.talk(post_data['message'], request.remote_addr, new_color=post_data['new_color'])
+    if 'new_color' in post_data:
+        new_color = True
+    else:
+        new_color = False
+    user_color = poe.talk(post_data['message'], request.remote_addr, new_color=new_color)
     return user_color
 
 @route('/about')
