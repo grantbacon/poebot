@@ -6,6 +6,7 @@ import json
 cfg = Config('poebot.cfg')
 
 poe = Poebot(cfg.log_file)
+poe.set_command(cfg.speech_command)
 
 @route('/static/<filepath:path>')
 def static(filepath):

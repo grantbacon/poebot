@@ -8,6 +8,7 @@ class Poebot:
     def __init__(self, db_file):
         self.name = "Poe"
         self.db_file = db_file
+        self.speech_command = ''
         self.users = {}
         self.user_colors = [
             '#EFBD8B',
@@ -25,25 +26,24 @@ class Poebot:
     def talk(self, message, user_address, new_color='off'):
         color = ''
         spoken_message = ''
+        full_command = ''
         try:
-            try:
-                if not new_color:
-                    color = self.users[user_address]
-                else:
-                    del self.users[user_address]
-                    color = self.colorize_user(user_address)
-            except KeyError:
-                self.colorize_user(user_address)
+            if not new_color:
+                color = self.users[user_address]
+            else:
+                del self.users[user_address]
+                color = self.colorize_user(user_address)
+        except KeyError:
+            self.colorize_user(user_address)
 
-#            subprocess.Popen( ['flite', '-voice','slt', '-t', message] )
+        full_command = self.speech_command + ' ' + message
 
-            spoken_message = '<span style="color:' + color + '">' + cgi.escape(message) + '</span>'
-            self.save(spoken_message)
-            print message
-            return color
-        except OSError:
-            pass
-        return True
+        subprocess.Popen( full_command.split() );
+
+        spoken_message = '<span style="color:' + color + '">' + cgi.escape(message) + '</span>'
+        self.save(spoken_message)
+        print message
+        return color
 
     def colorize_user(self, user_address):
         color = self.user_colors.pop()
@@ -56,3 +56,5 @@ class Poebot:
         f.write('%s <br>' % data)
         f.close()
 
+    def set_command(self, command):
+        self.speech_command = command

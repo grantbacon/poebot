@@ -7,7 +7,7 @@ $(document).ready(function() {
                 if (n['value'] !== '') {
                     json[n['name']] = n['value']
                 }
-            );
+            });
             return JSON.stringify(json);
         };
     })(jQuery);
@@ -26,3 +26,4 @@ $(document).ready(function() {
         return false;
     });
 });
+
