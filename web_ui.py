@@ -1,5 +1,5 @@
 from poebot import Poebot
-from bottle import run, route, request, template, static_file
+from bottle.bottle import run, route, request, response, template, static_file
 from config import Config
 import json
 
@@ -19,7 +19,11 @@ def speak():
         new_color = True
     else:
         new_color = False
-    user_color = poe.talk(post_data['message'], request.remote_addr, new_color=new_color)
+    try:
+        user_color = poe.talk(post_data['message'], request.remote_addr, new_color=new_color)
+    except OSError:
+        response.status = "420 Chill out man"
+        return '#FF0000'
     return user_color
 
 @route('/about')
