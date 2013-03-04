@@ -1,14 +1,20 @@
 poebot
 ======
 
-A Web-Controlled Speech Robot written with the Raspberry Pi in mind
+A web interface script with the purpose of speaking through a robot voice in a public area.
+
+Requirements
+------------
+
+* Speech synthesizer program: 'festival/flite/espeak' on linux, 'say' on OSX. Must be accessible by command line arguments
+* Define your settings in poebot.cfg
+* 'config' module for python
+* Python 2
 
 
-This project is a learning experience for me. I've got a Raspberry Pi hooked up to a set of speakers in my living room. Using this website people can communicate through the web interface to send messages to me and my roommates.
+Installation
+------------
 
-The web interface uses bottle.py to handle routing and requests. It's been great working with bottle.py, very simple.
+Clone into directory and edit poebot.cfg with appropriate settings
 
-
-_Required_
-bottle.py
-config module (use easy_install)
+    python web_ui.py
